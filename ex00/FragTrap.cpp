@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 15:27:47 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:44:53 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void    FragTrap::rangeAttack(std::string const& target) {
         std::cout << this->ranged_attack_damege_;
         std::cout << " points of damage!" << std::endl;
     } else {
-        cout("can't range attack.");
+        cout() << "can't range attack.";
+        std::cout << " Hit points is " << this->hit_points_;
+        std::cout << "." << std::endl;
     }
 }
 
@@ -46,7 +48,9 @@ void    FragTrap::meleeAttack(std::string const& target) {
         std::cout << this->melee_attack_damage_;
         std::cout << " points of damage!" << std::endl;
     } else {
-        cout("can't melee attack.");
+        cout() << "can't melee attack.";
+        std::cout << " Hit points is " << this->hit_points_;
+        std::cout << "." << std::endl;
     }
 }
 
@@ -73,7 +77,9 @@ void    FragTrap::takeDamage(unsigned int amount) {
 
 void    FragTrap::beRepaired(unsigned int amount) {
     if (this->hit_points_ == this->max_hit_points_) {
-        cout("needs No repair.");
+        cout()<< "needs no repair.";
+        std::cout << " Hit points is " << this->hit_points_;
+        std::cout << "." << std::endl;
     } else {
         unsigned int    tmp = this->hit_points_;
         this->hit_points_ += amount;
@@ -81,6 +87,37 @@ void    FragTrap::beRepaired(unsigned int amount) {
             this->hit_points_ = this->max_hit_points_;
         cout() << "has regained " << this->hit_points_ - tmp;
         std::cout << " hit points.";
+        std::cout << " Hit points is " << this->hit_points_;
+        std::cout << "." << std::endl;
+    }
+}
+
+void    FragTrap::vaulthunter_dot_exe(std::string const& target) {
+    const std::string    magics[] = {
+        "fire", "ice", "thunder", "wind", "water"
+    };
+    const unsigned int   damages[] = {
+        1, 2, 3, 4, 5
+    };
+    int magic_size = sizeof(magics) / sizeof(magics[0]);
+    int damage_size = sizeof(damages) / sizeof(damages[0]);
+    std::string magic = magics[rand() % magic_size];
+    unsigned int damage = damages[rand() % damage_size];
+
+    if (this->hit_points_ != 0) {
+        if (this->energy_points_ >= 25) {
+            this->energy_points_ -= 25;
+            cout() << "attacks " << target << " at " << magic;
+            std::cout <<", causing " << damage << " points of damage!";
+            std::cout << " Energy points is " << this->energy_points_;
+            std::cout << "." << std::endl;
+        } else {
+            cout() << "dose not have enough energy.";
+            std::cout << " Energy points is " << this->energy_points_;
+            std::cout << "." << std::endl;
+        }
+    } else {
+        cout() << "can't " << magic << " attack.";
         std::cout << " Hit points is " << this->hit_points_;
         std::cout << "." << std::endl;
     }
