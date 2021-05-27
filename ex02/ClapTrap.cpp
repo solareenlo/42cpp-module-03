@@ -6,13 +6,13 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:07:55 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 20:24:38 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 04:05:17 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string const& name) : name_(name) {
+ClapTrap::ClapTrap(std::string const& name) : name_(name), type_("CL4G-TP") {
     std::cout << name << " : Hi in Super Class!" << std::endl;
 }
 
