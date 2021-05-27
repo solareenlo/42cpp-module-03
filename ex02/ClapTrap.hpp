@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 17:59:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 19:57:48 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/27 20:23:57 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ class   ClapTrap {
     void            meleeAttack(std::string const& target);
     void            takeDamage(unsigned int amount);
     void            beRepaired(unsigned int amount);
+    unsigned int    getHitPoints(void);
+    unsigned int    getMaxHitPoints(void);
+    unsigned int    getEnergyPoints(void);
+    unsigned int    getMaxEnergyPoints(void);
+    unsigned int    getLevel(void);
+    unsigned int    getMeleeAttackDamage(void);
+    unsigned int    getRangedAttackDamege(void);
+    unsigned int    getArmorDamageReduction(void);
 
  protected:
     void            setHitPoints(unsigned int val);
@@ -36,14 +44,6 @@ class   ClapTrap {
     void            setRangedAttackDamege(unsigned int val);
     void            setArmorDamageReduction(unsigned int val);
     void            setType(std::string type);
-    unsigned int    getHitPoints(void);
-    unsigned int    getMaxHitPoints(void);
-    unsigned int    getEnergyPoints(void);
-    unsigned int    getMaxEnergyPoints(void);
-    unsigned int    getLevel(void);
-    unsigned int    getMeleeAttackDamage(void);
-    unsigned int    getRangedAttackDamege(void);
-    unsigned int    getArmorDamageReduction(void);
     std::ostream&   cout(void);
     std::ostream&   cout(std::string const& str);
 

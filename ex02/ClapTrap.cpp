@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:07:55 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 20:19:44 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/27 20:24:38 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -82,6 +82,38 @@ void    ClapTrap::beRepaired(unsigned int amount) {
     }
 }
 
+unsigned int    ClapTrap::getHitPoints(void) {
+    return (this->hit_points_);
+}
+
+unsigned int    ClapTrap::getMaxHitPoints(void) {
+    return (this->max_hit_points_);
+}
+
+unsigned int    ClapTrap::getEnergyPoints(void) {
+    return (this->energy_points_);
+}
+
+unsigned int    ClapTrap::getMaxEnergyPoints(void) {
+    return (this->max_energy_points_);
+}
+
+unsigned int    ClapTrap::getLevel(void) {
+    return (this->level_);
+}
+
+unsigned int    ClapTrap::getMeleeAttackDamage(void) {
+    return (this->melee_attack_damage_);
+}
+
+unsigned int    ClapTrap::getRangedAttackDamege(void) {
+    return (this->ranged_attack_damege_);
+}
+
+unsigned int    ClapTrap::getArmorDamageReduction(void) {
+    return (this->armor_damage_reduction_);
+}
+
 void    ClapTrap::setHitPoints(unsigned int val) {
     this->hit_points_ = val;
 }
@@ -116,38 +148,6 @@ void    ClapTrap::setArmorDamageReduction(unsigned int val) {
 
 void    ClapTrap::setType(std::string type) {
     this->type_ = type;
-}
-
-unsigned int    ClapTrap::getHitPoints(void) {
-    return (this->hit_points_);
-}
-
-unsigned int    ClapTrap::getMaxHitPoints(void) {
-    return (this->max_hit_points_);
-}
-
-unsigned int    ClapTrap::getEnergyPoints(void) {
-    return (this->energy_points_);
-}
-
-unsigned int    ClapTrap::getMaxEnergyPoints(void) {
-    return (this->max_energy_points_);
-}
-
-unsigned int    ClapTrap::getLevel(void) {
-    return (this->level_);
-}
-
-unsigned int    ClapTrap::getMeleeAttackDamage(void) {
-    return (this->melee_attack_damage_);
-}
-
-unsigned int    ClapTrap::getRangedAttackDamege(void) {
-    return (this->ranged_attack_damege_);
-}
-
-unsigned int    ClapTrap::getArmorDamageReduction(void) {
-    return (this->armor_damage_reduction_);
 }
 
 std::ostream&    ClapTrap::cout(void) {
