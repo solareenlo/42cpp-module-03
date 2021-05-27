@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 16:44:53 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:50:45 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ void    FragTrap::beRepaired(unsigned int amount) {
 }
 
 void    FragTrap::vaulthunter_dot_exe(std::string const& target) {
-    const std::string    magics[] = {
+    static const std::string    magics[] = {
         "fire", "ice", "thunder", "wind", "water"
     };
-    const unsigned int   damages[] = {
+    static const unsigned int   damages[] = {
         1, 2, 3, 4, 5
     };
     int magic_size = sizeof(magics) / sizeof(magics[0]);
