@@ -6,13 +6,23 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:07:55 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 04:05:17 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 06:58:19 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string const& name) : name_(name), type_("CL4G-TP") {
+ClapTrap::ClapTrap(std::string const& name) :
+    hit_points_(100),
+    max_hit_points_(100),
+    energy_points_(100),
+    max_energy_points_(100),
+    level_(1),
+    name_(name),
+    melee_attack_damage_(10),
+    ranged_attack_damege_(10),
+    armor_damage_reduction_(10),
+    type_("CL4G-TP") {
     std::cout << name << " : Hi in Super Class!" << std::endl;
 }
 
