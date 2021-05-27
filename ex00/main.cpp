@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 07:06:33 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 07:34:52 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/27 15:00:04 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -18,5 +18,8 @@ int main(void) {
     fragTrap.rangeAttack("B");
     fragTrap.takeDamage(10);
     fragTrap.takeDamage(10);
+    fragTrap.takeDamage(100);
+    fragTrap.meleeAttack("B");
+    fragTrap.beRepaired(10);
     return (0);
 }
