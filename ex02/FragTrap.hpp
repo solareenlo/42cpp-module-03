@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 04:47:56 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 16:46:16 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:24:50 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class   FragTrap : public ClapTrap {
 
     FragTrap&   operator = (FragTrap const& right);
 
+    void        rangeAttack(std::string const& target);
+    void        meleeAttack(std::string const& target);
     void        vaulthunter_dot_exe(std::string const& target);
 };
 

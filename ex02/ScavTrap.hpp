@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:56:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 16:47:12 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:22:36 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class   ScavTrap : public ClapTrap {
 
     ScavTrap&   operator = (ScavTrap const& right);
 
+    void        rangeAttack(std::string const& target);
+    void        meleeAttack(std::string const& target);
     void        challengeNewcomer(std::string const& target);
 };
 

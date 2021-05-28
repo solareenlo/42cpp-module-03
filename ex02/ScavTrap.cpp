@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:59:01 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 16:50:54 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:23:33 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -63,6 +63,34 @@ ScavTrap&   ScavTrap::operator = (ScavTrap const& right) {
         this->setType(right.getType());
     }
     return (*this);
+}
+
+void    ScavTrap::rangeAttack(std::string const& target) {
+    std::string range = "Machine gun";
+
+    if (this->ClapTrap::getHitPoints() != 0) {
+        cout() << "attacks " << target << " at " << range << " causing ";
+        std::cout << this->ClapTrap::getRangedAttackDamege();
+        std::cout << " points of damage!" << std::endl;
+    } else {
+        cout() << "can't " << range << " attack.";
+        std::cout << " Hit points is " << this->ClapTrap::getHitPoints();
+        std::cout << "." << std::endl;
+    }
+}
+
+void    ScavTrap::meleeAttack(std::string const& target) {
+    std::string melee = "Beam";
+
+    if (this->ClapTrap::getHitPoints() != 0) {
+        cout() << "attacks " << target << " at " << melee << " causing ";
+        std::cout << this->ClapTrap::getMeleeAttackDamage();
+        std::cout << " points of damage!" << std::endl;
+    } else {
+        cout() << "can't " << melee << " attack.";
+        std::cout << " Hit points is " << this->ClapTrap::getHitPoints();
+        std::cout << "." << std::endl;
+    }
 }
 
 void    ScavTrap::challengeNewcomer(std::string const& target) {
