@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:56:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 20:08:31 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 16:47:12 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "ClapTrap.hpp"
 
 class   ScavTrap : public ClapTrap {
  public:
+    ScavTrap(void);
     explicit ScavTrap(std::string const& name);
+    ScavTrap(ScavTrap const& src);
     ~ScavTrap(void);
 
-    void            challengeNewcomer(std::string const& target);
+    ScavTrap&   operator = (ScavTrap const& right);
+
+    void        challengeNewcomer(std::string const& target);
 };
 
 #endif  // EX02_SCAVTRAP_HPP_

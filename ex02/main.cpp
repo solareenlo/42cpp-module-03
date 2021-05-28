@@ -6,21 +6,24 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 07:06:33 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 16:11:13 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 16:55:49 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 int main(void) {
     FragTrap    fragTrap("F");
     ScavTrap    scavTrap("S");
+    ClapTrap    clapTrap("C");
 
-    fragTrap.rangeAttack("B");
-    scavTrap.rangeAttack("B");
-    fragTrap.meleeAttack("B");
-    scavTrap.meleeAttack("B");
+    fragTrap.rangeAttack("X");
+    scavTrap.rangeAttack("X");
+    clapTrap.rangeAttack("X");
+    fragTrap.meleeAttack("X");
+    scavTrap.meleeAttack("X");
     fragTrap.takeDamage(10);
     scavTrap.takeDamage(10);
     fragTrap.takeDamage(10);

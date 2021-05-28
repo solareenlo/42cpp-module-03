@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 04:47:56 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 16:32:12 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 16:46:16 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "ClapTrap.hpp"
 
 class   FragTrap : public ClapTrap {
