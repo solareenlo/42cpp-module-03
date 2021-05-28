@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 17:25:46 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:30:19 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void    FragTrap::rangeAttack(std::string const& target) {
     std::string range = "Grenade";
 
     if (this->ClapTrap::getHitPoints() != 0) {
-        cout() << "attacks " << target << " at " << range << " causing ";
+        cout() << "attacks " << target << " at " << range << ", causing ";
         std::cout << this->ClapTrap::getRangedAttackDamege();
         std::cout << " points of damage!" << std::endl;
     } else {
@@ -83,7 +83,7 @@ void    FragTrap::meleeAttack(std::string const& target) {
     std::string melee = "Knife";
 
     if (this->ClapTrap::getHitPoints() != 0) {
-        cout() << "attacks " << target << " at " << melee << " causing ";
+        cout() << "attacks " << target << " at " << melee << ", causing ";
         std::cout << this->ClapTrap::getMeleeAttackDamage();
         std::cout << " points of damage!" << std::endl;
     } else {

@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:59:01 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 17:23:33 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:31:09 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void    ScavTrap::rangeAttack(std::string const& target) {
     std::string range = "Machine gun";
 
     if (this->ClapTrap::getHitPoints() != 0) {
-        cout() << "attacks " << target << " at " << range << " causing ";
+        cout() << "attacks " << target << " at " << range << ", causing ";
         std::cout << this->ClapTrap::getRangedAttackDamege();
         std::cout << " points of damage!" << std::endl;
     } else {
@@ -83,7 +83,7 @@ void    ScavTrap::meleeAttack(std::string const& target) {
     std::string melee = "Beam";
 
     if (this->ClapTrap::getHitPoints() != 0) {
-        cout() << "attacks " << target << " at " << melee << " causing ";
+        cout() << "attacks " << target << " at " << melee << ", causing ";
         std::cout << this->ClapTrap::getMeleeAttackDamage();
         std::cout << " points of damage!" << std::endl;
     } else {
