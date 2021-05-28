@@ -6,18 +6,15 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 07:06:33 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 16:44:30 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 15:39:18 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
-#include <cstdlib>
-#include <ctime>
 #include "FragTrap.hpp"
 
 int main(void) {
     FragTrap    fragTrap("A");
 
-    srand(static_cast<unsigned>(time(NULL)));
     fragTrap.rangeAttack("B");
     fragTrap.meleeAttack("B");
     fragTrap.takeDamage(10);

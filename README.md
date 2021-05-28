@@ -26,6 +26,7 @@
   - [C++ メンバイニシャライザの効率を調べてみた](http://jagabeeinitialize.hatenablog.com/entry/2018/01/21/192043)
 - [委譲コンストラクタ](https://cpprefjp.github.io/lang/cpp11/delegating_constructors.html) は，C++11 からの機能．
   - 委譲コンストラクタは，効率の良い初期化方法．
+- [演算子のオーバーロード](http://wisdom.sakura.ne.jp/programming/cpp/cpp27.html)
 
 ### キャラクター名
 - Clap Trap
