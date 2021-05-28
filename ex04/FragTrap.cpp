@@ -6,13 +6,29 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 05:59:19 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 18:31:13 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap(void) : ClapTrap::ClapTrap() {
+    srand(static_cast<unsigned>(time(NULL)));
+    this->setHitPoints(this->getInitHitPoints());
+    this->setMaxHitPoints(this->getInitMaxHitPoints());
+    this->setEnergyPoints(this->getInitEnergyPoints());
+    this->setMaxEnergyPoints(this->getInitMaxEnergyPoints());
+    this->setLevel(this->getInitLevel());
+    this->setName("Tachikoma");
+    this->setMeleeAttackDamage(this->getInitMeleeAttackDamage());
+    this->setRangedAttackDamege(this->getInitRangedAttackDamage());
+    this->setArmorDamageReduction(this->getInitArmorDamageReduction());
+    this->setType("FR4G-TP");
+    cout(": Hi in Sub Class!");
+}
+
 FragTrap::FragTrap(std::string const& name) : ClapTrap::ClapTrap(name) {
+    srand(static_cast<unsigned>(time(NULL)));
     this->setHitPoints(this->getInitHitPoints());
     this->setMaxHitPoints(this->getInitMaxHitPoints());
     this->setEnergyPoints(this->getInitEnergyPoints());
@@ -25,8 +41,28 @@ FragTrap::FragTrap(std::string const& name) : ClapTrap::ClapTrap(name) {
     cout(": Hi in Sub Class!");
 }
 
+FragTrap::FragTrap(FragTrap const& src) {
+    *this = src;
+}
+
 FragTrap::~FragTrap(void) {
     cout(": goodbye in Sub Class!");
+}
+
+FragTrap&   FragTrap::operator = (FragTrap const& right) {
+    if (this != &right) {
+        this->setHitPoints(right.getHitPoints());
+        this->setMaxHitPoints(right.getMaxHitPoints());
+        this->setEnergyPoints(right.getEnergyPoints());
+        this->setMaxEnergyPoints(right.getMaxEnergyPoints());
+        this->setLevel(right.getLevel());
+        this->setName(right.getName());
+        this->setMeleeAttackDamage(right.getMeleeAttackDamage());
+        this->setRangedAttackDamege(right.getRangedAttackDamege());
+        this->setArmorDamageReduction(right.getArmorDamageReduction());
+        this->setType(right.getType());
+    }
+    return (*this);
 }
 
 void    FragTrap::rangeAttack(std::string const& target) {

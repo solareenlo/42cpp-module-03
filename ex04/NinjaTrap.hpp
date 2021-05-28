@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 01:43:04 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 06:28:35 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 18:16:36 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@
 
 class   NinjaTrap : public virtual ClapTrap {
  public:
+    NinjaTrap(void);
     explicit NinjaTrap(std::string const& name);
+    NinjaTrap(NinjaTrap const& src);
     ~NinjaTrap(void);
+
+    NinjaTrap&  operator = (NinjaTrap const& right);
 
     void    rangeAttack(std::string const& target);
     void    meleeAttack(std::string const& target);

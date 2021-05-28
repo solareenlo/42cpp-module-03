@@ -6,13 +6,29 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:59:01 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 06:48:44 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 18:49:54 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap(void) : ClapTrap::ClapTrap() {
+    srand(static_cast<unsigned>(time(NULL)));
+    this->setHitPoints(this->getInitHitPoints());
+    this->setMaxHitPoints(this->getInitMaxHitPoints());
+    this->setEnergyPoints(this->getInitEnergyPoints());
+    this->setMaxEnergyPoints(this->getInitMaxEnergyPoints());
+    this->setLevel(this->getInitLevel());
+    this->setName("Monban");
+    this->setMeleeAttackDamage(this->getInitMeleeAttackDamage());
+    this->setRangedAttackDamege(this->getInitRangedAttackDamage());
+    this->setArmorDamageReduction(this->getInitArmorDamageReduction());
+    this->setType("SC4V-TP");
+    cout(": Hi in Sub Class!");
+}
+
 ScavTrap::ScavTrap(std::string const& name) : ClapTrap::ClapTrap(name) {
+    srand(static_cast<unsigned>(time(NULL)));
     this->setHitPoints(this->getInitHitPoints());
     this->setMaxHitPoints(this->getInitMaxHitPoints());
     this->setEnergyPoints(this->getInitEnergyPoints());
@@ -25,8 +41,28 @@ ScavTrap::ScavTrap(std::string const& name) : ClapTrap::ClapTrap(name) {
     cout(": Hi in Sub Class!");
 }
 
+ScavTrap::ScavTrap(ScavTrap const& src) {
+    *this = src;
+}
+
 ScavTrap::~ScavTrap(void) {
     cout(": goodbye in Sub Class!");
+}
+
+ScavTrap&   ScavTrap::operator = (ScavTrap const& right) {
+    if (this != &right) {
+        this->setHitPoints(right.getHitPoints());
+        this->setMaxHitPoints(right.getMaxHitPoints());
+        this->setEnergyPoints(right.getEnergyPoints());
+        this->setMaxEnergyPoints(right.getMaxEnergyPoints());
+        this->setLevel(right.getLevel());
+        this->setName(right.getName());
+        this->setMeleeAttackDamage(right.getMeleeAttackDamage());
+        this->setRangedAttackDamege(right.getRangedAttackDamege());
+        this->setArmorDamageReduction(right.getArmorDamageReduction());
+        this->setType(right.getType());
+    }
+    return (*this);
 }
 
 void    ScavTrap::rangeAttack(std::string const& target) {
