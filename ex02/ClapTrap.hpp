@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 17:59:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 20:23:57 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 16:15:54 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -18,21 +18,28 @@
 
 class   ClapTrap {
  public:
+    ClapTrap(void);
     explicit ClapTrap(std::string const& name);
+    ClapTrap(ClapTrap const& src);
     ~ClapTrap(void);
+
+    ClapTrap&       operator = (ClapTrap const& right);
+
+    unsigned int    getHitPoints(void) const;
+    unsigned int    getMaxHitPoints(void) const;
+    unsigned int    getEnergyPoints(void) const;
+    unsigned int    getMaxEnergyPoints(void) const;
+    unsigned int    getLevel(void) const;
+    std::string     getName(void) const;
+    unsigned int    getMeleeAttackDamage(void) const;
+    unsigned int    getRangedAttackDamege(void) const;
+    unsigned int    getArmorDamageReduction(void) const;
+    std::string     getType(void) const;
 
     void            rangeAttack(std::string const& target);
     void            meleeAttack(std::string const& target);
     void            takeDamage(unsigned int amount);
     void            beRepaired(unsigned int amount);
-    unsigned int    getHitPoints(void);
-    unsigned int    getMaxHitPoints(void);
-    unsigned int    getEnergyPoints(void);
-    unsigned int    getMaxEnergyPoints(void);
-    unsigned int    getLevel(void);
-    unsigned int    getMeleeAttackDamage(void);
-    unsigned int    getRangedAttackDamege(void);
-    unsigned int    getArmorDamageReduction(void);
 
  protected:
     void            setHitPoints(unsigned int val);

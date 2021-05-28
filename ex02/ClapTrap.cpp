@@ -6,11 +6,25 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:07:55 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 06:58:19 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 16:17:34 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(void) :
+    hit_points_(100),
+    max_hit_points_(100),
+    energy_points_(100),
+    max_energy_points_(100),
+    level_(1),
+    name_("Clap"),
+    melee_attack_damage_(10),
+    ranged_attack_damege_(10),
+    armor_damage_reduction_(10),
+    type_("CL4P-TP") {
+    std::cout << "Clap" << " : Hi in Super Class!" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string const& name) :
     hit_points_(100),
@@ -26,8 +40,28 @@ ClapTrap::ClapTrap(std::string const& name) :
     std::cout << name << " : Hi in Super Class!" << std::endl;
 }
 
+ClapTrap::ClapTrap(ClapTrap const& src) {
+    *this = src;
+}
+
 ClapTrap::~ClapTrap(void) {
     cout(": goodbye in Super Class!");
+}
+
+ClapTrap&   ClapTrap::operator = (ClapTrap const& right) {
+    if (this != &right) {
+        this->hit_points_ = getHitPoints();
+        this->max_hit_points_ = getMaxHitPoints();
+        this->energy_points_ = getEnergyPoints();
+        this->max_energy_points_ = getMaxEnergyPoints();
+        this->level_ = getLevel();
+        this->name_ = getName();
+        this->melee_attack_damage_ = getMeleeAttackDamage();
+        this->ranged_attack_damege_ = getRangedAttackDamege();
+        this->armor_damage_reduction_ = getArmorDamageReduction();
+        this->type_ = getType();
+    }
+    return (*this);
 }
 
 void    ClapTrap::rangeAttack(std::string const& target) {
@@ -92,36 +126,44 @@ void    ClapTrap::beRepaired(unsigned int amount) {
     }
 }
 
-unsigned int    ClapTrap::getHitPoints(void) {
+unsigned int    ClapTrap::getHitPoints(void) const {
     return (this->hit_points_);
 }
 
-unsigned int    ClapTrap::getMaxHitPoints(void) {
+unsigned int    ClapTrap::getMaxHitPoints(void) const {
     return (this->max_hit_points_);
 }
 
-unsigned int    ClapTrap::getEnergyPoints(void) {
+unsigned int    ClapTrap::getEnergyPoints(void) const {
     return (this->energy_points_);
 }
 
-unsigned int    ClapTrap::getMaxEnergyPoints(void) {
+unsigned int    ClapTrap::getMaxEnergyPoints(void) const {
     return (this->max_energy_points_);
 }
 
-unsigned int    ClapTrap::getLevel(void) {
+unsigned int    ClapTrap::getLevel(void) const {
     return (this->level_);
 }
 
-unsigned int    ClapTrap::getMeleeAttackDamage(void) {
+std::string ClapTrap::getName(void) const {
+    return (this->name_);
+}
+
+unsigned int    ClapTrap::getMeleeAttackDamage(void) const {
     return (this->melee_attack_damage_);
 }
 
-unsigned int    ClapTrap::getRangedAttackDamege(void) {
+unsigned int    ClapTrap::getRangedAttackDamege(void) const {
     return (this->ranged_attack_damege_);
 }
 
-unsigned int    ClapTrap::getArmorDamageReduction(void) {
+unsigned int    ClapTrap::getArmorDamageReduction(void) const {
     return (this->armor_damage_reduction_);
+}
+
+std::string ClapTrap::getType(void) const {
+    return (this->type_);
 }
 
 void    ClapTrap::setHitPoints(unsigned int val) {
