@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 01:43:04 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 18:16:36 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 19:30:46 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -35,14 +35,16 @@ class   NinjaTrap : public virtual ClapTrap {
     void    ninjaShoebox(ScavTrap const& target);
     void    ninjaShoebox(NinjaTrap const& target);
 
-    unsigned int    getInitHitPoints(void);
-    unsigned int    getInitMaxHitPoints(void);
-    unsigned int    getInitEnergyPoints(void);
-    unsigned int    getInitMaxEnergyPoints(void);
-    unsigned int    getInitLevel(void);
-    unsigned int    getInitMeleeAttackDamage(void);
-    unsigned int    getInitRangedAttackDamage(void);
-    unsigned int    getInitArmorDamageReduction(void);
+    unsigned int    getInitHitPoints(void) const;
+    unsigned int    getInitMaxHitPoints(void) const;
+    unsigned int    getInitEnergyPoints(void) const;
+    unsigned int    getInitMaxEnergyPoints(void) const;
+    unsigned int    getInitLevel(void) const;
+    std::string     getInitName(void) const;
+    unsigned int    getInitMeleeAttackDamage(void) const;
+    unsigned int    getInitRangedAttackDamage(void) const;
+    unsigned int    getInitArmorDamageReduction(void) const;
+    std::string     getInitType(void) const;
 
  private:
     static const unsigned int   ninja_init_hit_points_ = 60;

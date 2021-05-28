@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 01:55:04 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 18:36:44 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 19:33:47 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ NinjaTrap::NinjaTrap(void) : ClapTrap::ClapTrap() {
     this->setEnergyPoints(this->getInitEnergyPoints());
     this->setMaxEnergyPoints(this->getInitMaxEnergyPoints());
     this->setLevel(this->getInitLevel());
-    this->setName("Ninja");
+    this->setName(this->getInitName());
     this->setMeleeAttackDamage(this->getInitMeleeAttackDamage());
     this->setRangedAttackDamege(this->getInitRangedAttackDamage());
     this->setArmorDamageReduction(this->getInitArmorDamageReduction());
-    this->setType("NI4N-TP");
+    this->setType(this->getInitType());
     cout(": Hi in Sub Class!");
 }
 
@@ -109,34 +109,42 @@ void    NinjaTrap::ninjaShoebox(NinjaTrap const& target) {
     cout() << "gave " << target.getName() << " a shuriken." << std::endl;
 }
 
-unsigned int    NinjaTrap::getInitHitPoints(void) {
+unsigned int    NinjaTrap::getInitHitPoints(void) const {
     return (this->ninja_init_hit_points_);
 }
 
-unsigned int    NinjaTrap::getInitMaxHitPoints(void) {
+unsigned int    NinjaTrap::getInitMaxHitPoints(void) const {
     return (this->ninja_init_max_hit_points_);
 }
 
-unsigned int    NinjaTrap::getInitEnergyPoints(void) {
+unsigned int    NinjaTrap::getInitEnergyPoints(void) const {
     return (this->ninja_init_energy_points_);
 }
 
-unsigned int    NinjaTrap::getInitMaxEnergyPoints(void) {
+unsigned int    NinjaTrap::getInitMaxEnergyPoints(void) const {
     return (this->ninja_init_max_energy_points_);
 }
 
-unsigned int    NinjaTrap::getInitLevel(void) {
+unsigned int    NinjaTrap::getInitLevel(void) const {
     return (this->ninja_init_level_);
 }
 
-unsigned int    NinjaTrap::getInitMeleeAttackDamage(void) {
+std::string NinjaTrap::getInitName(void) const {
+    return ("Ninja");
+}
+
+unsigned int    NinjaTrap::getInitMeleeAttackDamage(void) const {
     return (this->ninja_init_melee_attack_damage_);
 }
 
-unsigned int    NinjaTrap::getInitRangedAttackDamage(void) {
+unsigned int    NinjaTrap::getInitRangedAttackDamage(void) const {
     return (this->ninja_init_ranged_attack_damage_);
 }
 
-unsigned int    NinjaTrap::getInitArmorDamageReduction(void) {
+unsigned int    NinjaTrap::getInitArmorDamageReduction(void) const {
     return (this->ninja_init_armor_damage_reduction_);
+}
+
+std::string NinjaTrap::getInitType(void) const {
+    return ("NI4N-TP");
 }
