@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 18:31:13 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 19:28:26 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ FragTrap::FragTrap(void) : ClapTrap::ClapTrap() {
     this->setEnergyPoints(this->getInitEnergyPoints());
     this->setMaxEnergyPoints(this->getInitMaxEnergyPoints());
     this->setLevel(this->getInitLevel());
-    this->setName("Tachikoma");
+    this->setName(this->getInitName());
     this->setMeleeAttackDamage(this->getInitMeleeAttackDamage());
     this->setRangedAttackDamege(this->getInitRangedAttackDamage());
     this->setArmorDamageReduction(this->getInitArmorDamageReduction());
-    this->setType("FR4G-TP");
+    this->setType(this->getInitType());
     cout(": Hi in Sub Class!");
 }
 
@@ -37,7 +37,7 @@ FragTrap::FragTrap(std::string const& name) : ClapTrap::ClapTrap(name) {
     this->setMeleeAttackDamage(this->getInitMeleeAttackDamage());
     this->setRangedAttackDamege(this->getInitRangedAttackDamage());
     this->setArmorDamageReduction(this->getInitArmorDamageReduction());
-    this->setType("FR4G-TP");
+    this->setType(this->getInitType());
     cout(": Hi in Sub Class!");
 }
 
@@ -124,34 +124,42 @@ void    FragTrap::vaulthunter_dot_exe(std::string const& target) {
     }
 }
 
-unsigned int    FragTrap::getInitHitPoints(void) {
+unsigned int    FragTrap::getInitHitPoints(void) const {
     return (this->frag_init_hit_points_);
 }
 
-unsigned int    FragTrap::getInitMaxHitPoints(void) {
+unsigned int    FragTrap::getInitMaxHitPoints(void) const {
     return (this->frag_init_max_hit_points_);
 }
 
-unsigned int    FragTrap::getInitEnergyPoints(void) {
+unsigned int    FragTrap::getInitEnergyPoints(void) const {
     return (this->frag_init_energy_points_);
 }
 
-unsigned int    FragTrap::getInitMaxEnergyPoints(void) {
+unsigned int    FragTrap::getInitMaxEnergyPoints(void) const {
     return (this->frag_init_max_energy_points_);
 }
 
-unsigned int    FragTrap::getInitLevel(void) {
+unsigned int    FragTrap::getInitLevel(void) const {
     return (this->frag_init_level_);
 }
 
-unsigned int    FragTrap::getInitMeleeAttackDamage(void) {
+std::string FragTrap::getInitName(void) const {
+    return ("Tachikoma");
+}
+
+unsigned int    FragTrap::getInitMeleeAttackDamage(void) const {
     return (this->frag_init_melee_attack_damage_);
 }
 
-unsigned int    FragTrap::getInitRangedAttackDamage(void) {
+unsigned int    FragTrap::getInitRangedAttackDamage(void) const {
     return (this->frag_init_ranged_attack_damage_);
 }
 
-unsigned int    FragTrap::getInitArmorDamageReduction(void) {
+unsigned int    FragTrap::getInitArmorDamageReduction(void) const {
     return (this->frag_init_armor_damage_reduction_);
+}
+
+std::string FragTrap::getInitType(void) const {
+    return ("FR4G-TP");
 }
