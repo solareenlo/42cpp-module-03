@@ -6,12 +6,10 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 07:06:33 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 17:48:09 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 15:48:48 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
-#include <cstdlib>
-#include <ctime>
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
@@ -19,7 +17,6 @@ int main(void) {
     FragTrap    fragTrap("F");
     ScavTrap    scavTrap("S");
 
-    srand(static_cast<unsigned>(time(NULL)));
     fragTrap.rangeAttack("B");
     scavTrap.rangeAttack("B");
     fragTrap.meleeAttack("B");

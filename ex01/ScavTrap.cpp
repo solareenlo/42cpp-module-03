@@ -6,11 +6,26 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:59:01 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/27 17:46:07 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 15:58:42 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(void) :
+    hit_points_(100),
+    max_hit_points_(100),
+    energy_points_(50),
+    max_energy_points_(50),
+    level_(1),
+    name_("Monban"),
+    melee_attack_damage_(20),
+    ranged_attack_damege_(15),
+    armor_damage_reduction_(3),
+    type_("SC4V-TP") {
+        srand(static_cast<unsigned>(time(NULL)));
+        cout(": Hi!");
+}
 
 ScavTrap::ScavTrap(std::string const& name) :
     hit_points_(100),
@@ -21,8 +36,74 @@ ScavTrap::ScavTrap(std::string const& name) :
     name_(name),
     melee_attack_damage_(20),
     ranged_attack_damege_(15),
-    armor_damage_reduction_(3) {
-        return;
+    armor_damage_reduction_(3),
+    type_("SC4V-TP") {
+        srand(static_cast<unsigned>(time(NULL)));
+        cout(": Hi!");
+}
+
+ScavTrap::ScavTrap(ScavTrap const& src) {
+    *this = src;
+}
+
+ScavTrap::~ScavTrap(void) {
+    cout(": Good bye!");
+}
+
+ScavTrap&   ScavTrap::operator = (ScavTrap const& right) {
+    if (this != &right) {
+        this->hit_points_ = getHitPoints();
+        this->max_hit_points_ = getMaxHitPoints();
+        this->energy_points_ = getEnergyPoints();
+        this->max_energy_points_ = getMaxEnergyPoints();
+        this->level_ = getLevel();
+        this->name_ = getName();
+        this->melee_attack_damage_ = getMeleeAttackDamage();
+        this->ranged_attack_damege_ = getRangedAttackDamege();
+        this->armor_damage_reduction_ = getArmorDamageReduction();
+        this->type_ = getType();
+    }
+    return (*this);
+}
+
+unsigned int    ScavTrap::getHitPoints(void) const {
+    return (this->hit_points_);
+}
+
+unsigned int    ScavTrap::getMaxHitPoints(void) const {
+    return (this->max_hit_points_);
+}
+
+unsigned int    ScavTrap::getEnergyPoints(void) const {
+    return (this->energy_points_);
+}
+
+unsigned int    ScavTrap::getMaxEnergyPoints(void) const {
+    return (this->max_energy_points_);
+}
+
+unsigned int    ScavTrap::getLevel(void) const {
+    return (this->level_);
+}
+
+std::string ScavTrap::getName(void) const {
+    return (this->name_);
+}
+
+unsigned int    ScavTrap::getMeleeAttackDamage(void) const {
+    return (this->melee_attack_damage_);
+}
+
+unsigned int    ScavTrap::getRangedAttackDamege(void) const {
+    return (this->ranged_attack_damege_);
+}
+
+unsigned int    ScavTrap::getArmorDamageReduction(void) const {
+    return (this->armor_damage_reduction_);
+}
+
+std::string ScavTrap::getType(void) const {
+    return (this->type_);
 }
 
 void    ScavTrap::rangeAttack(std::string const& target) {
@@ -100,9 +181,6 @@ void    ScavTrap::challengeNewcomer(std::string const& target) {
     std::string challenge = challenges[rand() % size];
     cout() << "had created " << challenge << " for " << target;
     std::cout << "." << std::endl;
-}
-
-ScavTrap::~ScavTrap(void) {
 }
 
 std::ostream&    ScavTrap::cout(void) {
