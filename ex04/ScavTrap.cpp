@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:59:01 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 18:49:54 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 19:37:39 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ ScavTrap::ScavTrap(void) : ClapTrap::ClapTrap() {
     this->setEnergyPoints(this->getInitEnergyPoints());
     this->setMaxEnergyPoints(this->getInitMaxEnergyPoints());
     this->setLevel(this->getInitLevel());
-    this->setName("Monban");
+    this->setName(this->getInitName());
     this->setMeleeAttackDamage(this->getInitMeleeAttackDamage());
     this->setRangedAttackDamege(this->getInitRangedAttackDamage());
     this->setArmorDamageReduction(this->getInitArmorDamageReduction());
-    this->setType("SC4V-TP");
+    this->setType(this->getInitType());
     cout(": Hi in Sub Class!");
 }
 
@@ -108,34 +108,42 @@ void    ScavTrap::challengeNewcomer(std::string const& target) {
     std::cout << "." << std::endl;
 }
 
-unsigned int    ScavTrap::getInitHitPoints(void) {
+unsigned int    ScavTrap::getInitHitPoints(void) const {
     return (this->scav_init_hit_points_);
 }
 
-unsigned int    ScavTrap::getInitMaxHitPoints(void) {
+unsigned int    ScavTrap::getInitMaxHitPoints(void) const {
     return (this->scav_init_max_hit_points_);
 }
 
-unsigned int    ScavTrap::getInitEnergyPoints(void) {
+unsigned int    ScavTrap::getInitEnergyPoints(void) const {
     return (this->scav_init_energy_points_);
 }
 
-unsigned int    ScavTrap::getInitMaxEnergyPoints(void) {
+unsigned int    ScavTrap::getInitMaxEnergyPoints(void) const {
     return (this->scav_init_max_energy_points_);
 }
 
-unsigned int    ScavTrap::getInitLevel(void) {
+unsigned int    ScavTrap::getInitLevel(void) const {
     return (this->scav_init_level_);
 }
 
-unsigned int    ScavTrap::getInitMeleeAttackDamage(void) {
+std::string ScavTrap::getInitName(void) const {
+    return ("Monban");
+}
+
+unsigned int    ScavTrap::getInitMeleeAttackDamage(void) const {
     return (this->scav_init_melee_attack_damage_);
 }
 
-unsigned int    ScavTrap::getInitRangedAttackDamage(void) {
+unsigned int    ScavTrap::getInitRangedAttackDamage(void) const {
     return (this->scav_init_ranged_attack_damage_);
 }
 
-unsigned int    ScavTrap::getInitArmorDamageReduction(void) {
+unsigned int    ScavTrap::getInitArmorDamageReduction(void) const {
     return (this->scav_init_armor_damage_reduction_);
+}
+
+std::string ScavTrap::getInitType(void) const {
+    return ("SC4V-TP");
 }

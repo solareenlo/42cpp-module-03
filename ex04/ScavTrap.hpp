@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:56:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 18:48:28 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 19:35:37 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ class   ScavTrap : public ClapTrap {
     void            meleeAttack(std::string const& target);
     void            challengeNewcomer(std::string const& target);
 
-    unsigned int    getInitHitPoints(void);
-    unsigned int    getInitMaxHitPoints(void);
-    unsigned int    getInitEnergyPoints(void);
-    unsigned int    getInitMaxEnergyPoints(void);
-    unsigned int    getInitLevel(void);
-    unsigned int    getInitMeleeAttackDamage(void);
-    unsigned int    getInitRangedAttackDamage(void);
-    unsigned int    getInitArmorDamageReduction(void);
+    unsigned int    getInitHitPoints(void) const;
+    unsigned int    getInitMaxHitPoints(void) const;
+    unsigned int    getInitEnergyPoints(void) const;
+    unsigned int    getInitMaxEnergyPoints(void) const;
+    unsigned int    getInitLevel(void) const;
+    std::string     getInitName(void) const;
+    unsigned int    getInitMeleeAttackDamage(void) const;
+    unsigned int    getInitRangedAttackDamage(void) const;
+    unsigned int    getInitArmorDamageReduction(void) const;
+    std::string     getInitType(void) const;
 
  private:
     static const unsigned int   scav_init_hit_points_ = 100;
