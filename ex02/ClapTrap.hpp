@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 17:59:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 16:15:54 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 16:33:34 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ class   ClapTrap {
     void            setEnergyPoints(unsigned int val);
     void            setMaxEnergyPoints(unsigned int val);
     void            setLevel(unsigned int val);
+    void            setName(std::string name);
     void            setMeleeAttackDamage(unsigned int val);
     void            setRangedAttackDamege(unsigned int val);
     void            setArmorDamageReduction(unsigned int val);

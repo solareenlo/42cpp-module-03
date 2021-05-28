@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 18:07:55 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 16:17:34 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 16:34:18 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -184,6 +184,10 @@ void    ClapTrap::setMaxEnergyPoints(unsigned int val) {
 
 void    ClapTrap::setLevel(unsigned int val) {
     this->level_ = val;
+}
+
+void    ClapTrap::setName(std::string name) {
+    this->name_ = name;
 }
 
 void    ClapTrap::setMeleeAttackDamage(unsigned int val) {
