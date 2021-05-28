@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 01:43:04 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 19:30:46 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 19:41:37 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ class   NinjaTrap : public virtual ClapTrap {
 
     NinjaTrap&  operator = (NinjaTrap const& right);
 
-    void    rangeAttack(std::string const& target);
-    void    meleeAttack(std::string const& target);
+    void            rangeAttack(std::string const& target);
+    void            meleeAttack(std::string const& target);
 
-    void    ninjaShoebox(ClapTrap const& target);
-    void    ninjaShoebox(FragTrap const& target);
-    void    ninjaShoebox(ScavTrap const& target);
-    void    ninjaShoebox(NinjaTrap const& target);
+    void            ninjaShoebox(ClapTrap const& target);
+    void            ninjaShoebox(FragTrap const& target);
+    void            ninjaShoebox(ScavTrap const& target);
+    void            ninjaShoebox(NinjaTrap const& target);
 
     unsigned int    getInitHitPoints(void) const;
     unsigned int    getInitMaxHitPoints(void) const;
