@@ -5,6 +5,7 @@
   - C++ でダイヤモンド継承をすると基底クラスの実体はふたつ存在することになる．
   - C++ では仮想継承（virtual）という方法を用いると，基底クラスの実体をひとつにすることができる．
 - [静的メンバ](https://cpp-lang.sevendays-study.com/day5.html)
+- [Static constant string (class member)](https://stackoverflow.com/questions/1563897/static-constant-string-class-member)
 
 ### ex02
 - [継承](https://programming.pc-note.net/cpp/inheritance.html)
