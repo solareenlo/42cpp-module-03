@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 17:59:31 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 03:40:01 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:40:22 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 class   ClapTrap {
  public:
+    ClapTrap(void);
     explicit ClapTrap(std::string const& name);
+    ClapTrap(ClapTrap const& src);
     ~ClapTrap(void);
 
-    void            rangeAttack(std::string const& target);
-    void            meleeAttack(std::string const& target);
-    void            takeDamage(unsigned int amount);
-    void            beRepaired(unsigned int amount);
+    ClapTrap&       operator = (ClapTrap const& right);
+
     unsigned int    getHitPoints(void) const;
     unsigned int    getMaxHitPoints(void) const;
     unsigned int    getEnergyPoints(void) const;
@@ -34,6 +34,12 @@ class   ClapTrap {
     unsigned int    getMeleeAttackDamage(void) const;
     unsigned int    getRangedAttackDamege(void) const;
     unsigned int    getArmorDamageReduction(void) const;
+    std::string     getType(void) const;
+
+    void            rangeAttack(std::string const& target);
+    void            meleeAttack(std::string const& target);
+    void            takeDamage(unsigned int amount);
+    void            beRepaired(unsigned int amount);
 
  protected:
     void            setHitPoints(unsigned int val);
@@ -41,6 +47,7 @@ class   ClapTrap {
     void            setEnergyPoints(unsigned int val);
     void            setMaxEnergyPoints(unsigned int val);
     void            setLevel(unsigned int val);
+    void            setName(std::string name);
     void            setMeleeAttackDamage(unsigned int val);
     void            setRangedAttackDamege(unsigned int val);
     void            setArmorDamageReduction(unsigned int val);
