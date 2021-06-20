@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 04:47:56 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 15:39:27 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 20:22:22 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -20,23 +20,11 @@
 
 class   FragTrap {
  public:
-    FragTrap(void);
+    FragTrap();
+    ~FragTrap();
     explicit FragTrap(std::string const& name);
     FragTrap(FragTrap const& src);
-    ~FragTrap(void);
-
-    FragTrap&       operator = (FragTrap const& right);
-
-    unsigned int    getHitPoints(void) const;
-    unsigned int    getMaxHitPoints(void) const;
-    unsigned int    getEnergyPoints(void) const;
-    unsigned int    getMaxEnergyPoints(void) const;
-    unsigned int    getLevel(void) const;
-    std::string     getName(void) const;
-    unsigned int    getMeleeAttackDamage(void) const;
-    unsigned int    getRangedAttackDamege(void) const;
-    unsigned int    getArmorDamageReduction(void) const;
-    std::string     getType(void) const;
+    FragTrap&       operator=(FragTrap const& rhs);
 
     void            rangeAttack(std::string const& target);
     void            meleeAttack(std::string const& target);
@@ -55,7 +43,19 @@ class   FragTrap {
     unsigned int    ranged_attack_damege_;
     unsigned int    armor_damage_reduction_;
     std::string     type_;
-    std::ostream&   cout(void);
+
+    unsigned int    getHitPoints() const;
+    unsigned int    getMaxHitPoints() const;
+    unsigned int    getEnergyPoints() const;
+    unsigned int    getMaxEnergyPoints() const;
+    unsigned int    getLevel() const;
+    std::string     getName() const;
+    unsigned int    getMeleeAttackDamage() const;
+    unsigned int    getRangedAttackDamege() const;
+    unsigned int    getArmorDamageReduction() const;
+    std::string     getType() const;
+
+    std::ostream&   cout();
     std::ostream&   cout(std::string const& str);
 };
 
