@@ -6,53 +6,60 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 07:06:33 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 17:33:23 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/21 03:16:34 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
+#include <ctime>
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-int main(void) {
-    FragTrap    fragTrap("F");
-    ScavTrap    scavTrap("S");
+int main() {
+    srand(static_cast<unsigned>(time(NULL)));
 
-    fragTrap.rangeAttack("B");
-    scavTrap.rangeAttack("B");
+    FragTrap    F("F");
+    ScavTrap    S("S");
+
+    F.rangeAttack("B");
+    S.rangeAttack("B");
     std::cout << std::endl;
 
-    fragTrap.meleeAttack("B");
-    scavTrap.meleeAttack("B");
+    F.meleeAttack("B");
+    S.meleeAttack("B");
     std::cout << std::endl;
 
-    fragTrap.takeDamage(10);
-    scavTrap.takeDamage(10);
-    fragTrap.takeDamage(10);
-    scavTrap.takeDamage(10);
-    fragTrap.takeDamage(100);
+    F.takeDamage(10);
+    S.takeDamage(10);
+    F.takeDamage(10);
+    S.takeDamage(10);
+    F.takeDamage(100);
     std::cout << std::endl;
 
-    fragTrap.meleeAttack("B");
-    fragTrap.beRepaired(10);
-    fragTrap.beRepaired(100);
-    scavTrap.beRepaired(100);
-    fragTrap.beRepaired(100);
+    F.meleeAttack("B");
+    F.beRepaired(10);
+    F.beRepaired(100);
+    S.beRepaired(100);
+    F.beRepaired(100);
     std::cout << std::endl;
 
-    fragTrap.vaulthunter_dot_exe("B");
-    fragTrap.vaulthunter_dot_exe("C");
-    fragTrap.vaulthunter_dot_exe("D");
-    fragTrap.vaulthunter_dot_exe("E");
-    fragTrap.vaulthunter_dot_exe("F");
-    fragTrap.vaulthunter_dot_exe("G");
+    F.vaulthunter_dot_exe("B");
+    F.vaulthunter_dot_exe("C");
+    F.vaulthunter_dot_exe("D");
+    F.vaulthunter_dot_exe("E");
+    F.vaulthunter_dot_exe("F");
+    F.beRepaired(100);
+    F.vaulthunter_dot_exe("G");
     std::cout << std::endl;
 
-    scavTrap.challengeNewcomer("A");
-    scavTrap.challengeNewcomer("B");
+    S.challengeNewcomer("A");
+    S.challengeNewcomer("B");
+    S.challengeNewcomer("B");
+    S.beRepaired(50);
     std::cout << std::endl;
 
-    fragTrap.takeDamage(200);
-    scavTrap.takeDamage(200);
-    fragTrap.vaulthunter_dot_exe("G");
+    F.takeDamage(200);
+    S.takeDamage(200);
+    F.vaulthunter_dot_exe("G");
+    S.challengeNewcomer("G");
     return (0);
 }

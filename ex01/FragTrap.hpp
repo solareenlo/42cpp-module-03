@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 04:47:56 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/05/28 15:47:47 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 23:43:38 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -16,27 +16,14 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <ctime>
 
 class   FragTrap {
  public:
-    FragTrap(void);
+    FragTrap();
+    ~FragTrap();
     explicit FragTrap(std::string const& name);
     FragTrap(FragTrap const& src);
-    ~FragTrap(void);
-
-    FragTrap&       operator = (FragTrap const& right);
-
-    unsigned int    getHitPoints(void) const;
-    unsigned int    getMaxHitPoints(void) const;
-    unsigned int    getEnergyPoints(void) const;
-    unsigned int    getMaxEnergyPoints(void) const;
-    unsigned int    getLevel(void) const;
-    std::string     getName(void) const;
-    unsigned int    getMeleeAttackDamage(void) const;
-    unsigned int    getRangedAttackDamege(void) const;
-    unsigned int    getArmorDamageReduction(void) const;
-    std::string     getType(void) const;
+    FragTrap&       operator=(FragTrap const& rhs);
 
     void            rangeAttack(std::string const& target);
     void            meleeAttack(std::string const& target);
@@ -55,7 +42,22 @@ class   FragTrap {
     unsigned int    ranged_attack_damege_;
     unsigned int    armor_damage_reduction_;
     std::string     type_;
-    std::ostream&   cout(void);
+
+    unsigned int    getHitPoints() const;
+    unsigned int    getMaxHitPoints() const;
+    unsigned int    getEnergyPoints() const;
+    unsigned int    getMaxEnergyPoints() const;
+    unsigned int    getLevel() const;
+    std::string     getName() const;
+    unsigned int    getMeleeAttackDamage() const;
+    unsigned int    getRangedAttackDamege() const;
+    unsigned int    getArmorDamageReduction() const;
+    std::string     getType() const;
+
+    void            setHitPoints(unsigned int amount);
+    void            setEnergyPoints(unsigned int amount);
+
+    std::ostream&   cout();
     std::ostream&   cout(std::string const& str);
 };
 
