@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 04:47:56 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/20 20:22:22 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 20:34:38 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <ctime>
 
 class   FragTrap {
  public:

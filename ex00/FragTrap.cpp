@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/20 20:29:11 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:08:14 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ std::string FragTrap::getType() const {
 }
 
 void    FragTrap::rangeAttack(std::string const& target) {
-    if (this->hit_points_ != 0) {
+    if (this->getHitPoints() > 0) {
         cout() << "attacks " << target << " at range, causing "
         << this->getRangedAttackDamege() << " points of damage!" << std::endl;
     } else {
@@ -111,7 +111,7 @@ void    FragTrap::rangeAttack(std::string const& target) {
 }
 
 void    FragTrap::meleeAttack(std::string const& target) {
-    if (this->hit_points_ != 0) {
+    if (this->getHitPoints() > 0) {
         cout() << "attacks " << target << " at melee, causing "
             << this->getMeleeAttackDamage() << " points of damage!"
             << std::endl;
@@ -122,9 +122,9 @@ void    FragTrap::meleeAttack(std::string const& target) {
 }
 
 void    FragTrap::takeDamage(unsigned int amount) {
-    if (amount > this->armor_damage_reduction_) {
+    if (amount > this->getArmorDamageReduction()) {
         unsigned int    damage = amount - this->armor_damage_reduction_;
-        if (this->hit_points_ > damage) {
+        if (this->getHitPoints() > damage) {
             this->hit_points_ -= damage;
             cout() << "took " << damage << " damage! Hit points is "
                 << this->getHitPoints() << "." << std::endl;
@@ -141,16 +141,17 @@ void    FragTrap::takeDamage(unsigned int amount) {
 }
 
 void    FragTrap::beRepaired(unsigned int amount) {
-    if (this->hit_points_ == this->max_hit_points_) {
+    if (this->getHitPoints() == this->getMaxHitPoints()) {
         cout()<< "needs no repair. Hit points is " << this->getHitPoints()
             << "." << std::endl;
     } else {
-        unsigned int    tmp = this->hit_points_;
-        this->hit_points_ += amount;
-        if (this->hit_points_ >= this->max_hit_points_)
-            this->hit_points_ = this->max_hit_points_;
+        unsigned int    tmp = this->getHitPoints();
+        if (this->getMaxHitPoints() - this->getHitPoints() <= amount)
+            this->hit_points_ = this->getMaxHitPoints();
+        else
+            this->hit_points_ += amount;
         cout() << "has regained " << this->getHitPoints() - tmp
-            << " hit points. Hit points is " << this->hit_points_
+            << " hit points. Hit points is " << this->getHitPoints()
             << "." << std::endl;
     }
 }
@@ -167,21 +168,20 @@ void    FragTrap::vaulthunter_dot_exe(std::string const& target) {
     std::string magic = magics[rand() % magic_size];
     unsigned int damage = damages[rand() % damage_size];
 
-    if (this->hit_points_ != 0) {
+    if (this->getHitPoints() > 0) {
         if (this->getEnergyPoints() >= 25) {
             this->energy_points_ -= 25;
             cout() << "attacks " << target << " at " << magic
-                <<", causing " << damage << " points of damage!"
-                << " Energy points is " << this->energy_points_
-                << "." << std::endl;
+                <<", causing " << damage
+                << " points of damage! Energy points is "
+                << this->energy_points_ << "." << std::endl;
         } else {
-            cout() << "dose not have enough energy."
-                << " Energy points is " << this->getEnergyPoints()
-                << "." << std::endl;
+            cout() << "dose not have enough energy. Energy points is "
+                << this->getEnergyPoints() << "." << std::endl;
         }
     } else {
-        cout() << "can't " << magic << " attack."
-            << " Hit points is " << this->getHitPoints() << "." << std::endl;
+        cout() << "can't " << magic << " attack. Hit points is "
+            << this->getHitPoints() << "." << std::endl;
     }
 }
 
