@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 04:47:56 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/20 20:34:38 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:51:10 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ class   FragTrap {
     unsigned int    getRangedAttackDamege() const;
     unsigned int    getArmorDamageReduction() const;
     std::string     getType() const;
+
+    void            setHitPoints(unsigned int amount);
+    void            setEnergyPoints(unsigned int amount);
 
     std::ostream&   cout();
     std::ostream&   cout(std::string const& str);

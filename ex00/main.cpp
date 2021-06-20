@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 07:06:33 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/20 21:28:16 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 22:53:28 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int main() {
     A.vaulthunter_dot_exe("D");
     A.vaulthunter_dot_exe("E");
     A.vaulthunter_dot_exe("F");
+    A.takeDamage(50);
+    A.beRepaired(100);
     A.vaulthunter_dot_exe("G");
     std::cout << std::endl;
 
@@ -54,5 +56,12 @@ int main() {
     std::cout << std::endl;
 
     FragTrap    C = B;
+    C.beRepaired(0);
+    std::cout << std::endl;
+
+    FragTrap    D;
+    D = C;
+    D.beRepaired(0);
+    std::cout << std::endl;
     return (0);
 }

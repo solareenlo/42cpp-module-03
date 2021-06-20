@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/20 21:08:14 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 22:52:22 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ FragTrap::FragTrap(std::string const& name) :
         cout(": Hi!");
 }
 
-FragTrap::FragTrap(FragTrap const& src) { this->operator=(src); }
+FragTrap::FragTrap(FragTrap const& src) {
+    this->operator=(src);
+    cout(": Hi!");
+}
 
 FragTrap&   FragTrap::operator=(FragTrap const& rhs) {
     if (this != &rhs) {
@@ -100,6 +103,14 @@ std::string FragTrap::getType() const {
     return (this->type_);
 }
 
+void    FragTrap::setHitPoints(unsigned int amount) {
+    this->hit_points_ = amount;
+}
+
+void    FragTrap::setEnergyPoints(unsigned int amount) {
+    this->energy_points_ = amount;
+}
+
 void    FragTrap::rangeAttack(std::string const& target) {
     if (this->getHitPoints() > 0) {
         cout() << "attacks " << target << " at range, causing "
@@ -123,14 +134,14 @@ void    FragTrap::meleeAttack(std::string const& target) {
 
 void    FragTrap::takeDamage(unsigned int amount) {
     if (amount > this->getArmorDamageReduction()) {
-        unsigned int    damage = amount - this->armor_damage_reduction_;
+        unsigned int    damage = amount - this->getArmorDamageReduction();
         if (this->getHitPoints() > damage) {
-            this->hit_points_ -= damage;
+            this->setHitPoints(this->getHitPoints() - damage);
             cout() << "took " << damage << " damage! Hit points is "
                 << this->getHitPoints() << "." << std::endl;
         } else {
             cout() << "took " << this->getHitPoints() << " damage!";
-            this->hit_points_ = 0;
+            this->setHitPoints(0);
             std::cout << " Hit points is " << this->getHitPoints()
                 << "." << std::endl;
         }
@@ -141,18 +152,39 @@ void    FragTrap::takeDamage(unsigned int amount) {
 }
 
 void    FragTrap::beRepaired(unsigned int amount) {
-    if (this->getHitPoints() == this->getMaxHitPoints()) {
+    if (this->getHitPoints() == this->getMaxHitPoints()
+            && this->getEnergyPoints() == this->getMaxEnergyPoints()) {
         cout()<< "needs no repair. Hit points is " << this->getHitPoints()
+            << ", Enegy points is " << this->getEnergyPoints()
             << "." << std::endl;
     } else {
-        unsigned int    tmp = this->getHitPoints();
-        if (this->getMaxHitPoints() - this->getHitPoints() <= amount)
-            this->hit_points_ = this->getMaxHitPoints();
-        else
-            this->hit_points_ += amount;
-        cout() << "has regained " << this->getHitPoints() - tmp
-            << " hit points. Hit points is " << this->getHitPoints()
-            << "." << std::endl;
+        if (this->getHitPoints() != this->getMaxHitPoints()) {
+            unsigned int    tmp = this->getHitPoints();
+            if (this->getMaxHitPoints() - this->getHitPoints() <= amount)
+                this->setHitPoints(this->getMaxHitPoints());
+            else
+                this->setHitPoints(this->getHitPoints() + amount);
+            cout() << "has regained " << this->getHitPoints() - tmp
+                << " hit points. Hit points is " << this->getHitPoints()
+                << "." << std::endl;
+        } else {
+            cout() << "has " << this->getHitPoints()
+                << " hit points." << std::endl;
+        }
+
+        if (this->getEnergyPoints() != this->getMaxEnergyPoints()) {
+            unsigned int tmp = this->getEnergyPoints();
+            if (this->getMaxEnergyPoints() - this->getEnergyPoints() <= amount)
+                this->setEnergyPoints(this->getMaxEnergyPoints());
+            else
+                this->setEnergyPoints(this->getEnergyPoints() + amount);
+            cout() << "has regained " << this->getEnergyPoints() - tmp
+                << " energy points. Energy points is "
+                << this->getEnergyPoints() << "." << std::endl;
+        } else {
+            cout() << "has " << this->getEnergyPoints()
+                << " energy points." << std::endl;
+        }
     }
 }
 
