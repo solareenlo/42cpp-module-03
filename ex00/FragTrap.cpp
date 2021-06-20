@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 05:03:54 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/20 22:52:22 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 23:39:31 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ FragTrap::FragTrap() :
     ranged_attack_damege_(20),
     armor_damage_reduction_(5),
     type_("FR4G-TP") {
-        cout(": Hi!");
+        cout(": Hi! I love to drink and 42!");
 }
 
-FragTrap::~FragTrap() { cout(": Good bye!"); }
+FragTrap::~FragTrap() {
+    cout(": Good bye! God bless you!");
+}
 
 FragTrap::FragTrap(std::string const& name) :
     hit_points_(100),
@@ -39,12 +41,12 @@ FragTrap::FragTrap(std::string const& name) :
     ranged_attack_damege_(20),
     armor_damage_reduction_(5),
     type_("FR4G-TP") {
-        cout(": Hi!");
+        cout(": Hi! I love coding and 42!");
 }
 
 FragTrap::FragTrap(FragTrap const& src) {
     this->operator=(src);
-    cout(": Hi!");
+    cout(": Hi! I love review and 42.");
 }
 
 FragTrap&   FragTrap::operator=(FragTrap const& rhs) {
@@ -167,6 +169,8 @@ void    FragTrap::beRepaired(unsigned int amount) {
             cout() << "has regained " << this->getHitPoints() - tmp
                 << " hit points. Hit points is " << this->getHitPoints()
                 << "." << std::endl;
+            if (tmp == 0)
+                cout() << "can be fight again. YEAAAAH!" << std::endl;
         } else {
             cout() << "has " << this->getHitPoints()
                 << " hit points." << std::endl;
@@ -181,6 +185,10 @@ void    FragTrap::beRepaired(unsigned int amount) {
             cout() << "has regained " << this->getEnergyPoints() - tmp
                 << " energy points. Energy points is "
                 << this->getEnergyPoints() << "." << std::endl;
+            if (this->getHitPoints() > 0
+                    && tmp < 25
+                    && this->getEnergyPoints() >= 25)
+                cout() << "can be special attack again. YEAAAAH!" << std::endl;
         } else {
             cout() << "has " << this->getEnergyPoints()
                 << " energy points." << std::endl;
@@ -202,7 +210,7 @@ void    FragTrap::vaulthunter_dot_exe(std::string const& target) {
 
     if (this->getHitPoints() > 0) {
         if (this->getEnergyPoints() >= 25) {
-            this->energy_points_ -= 25;
+            this->setEnergyPoints(this->getEnergyPoints() - 25);
             cout() << "attacks " << target << " at " << magic
                 <<", causing " << damage
                 << " points of damage! Energy points is "

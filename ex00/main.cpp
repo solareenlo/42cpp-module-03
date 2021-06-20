@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 07:06:33 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/06/20 22:53:28 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/06/20 23:40:11 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int main() {
 
     FragTrap    B(A);
     B.beRepaired(10);
+    std::cout << std::endl;
     A.vaulthunter_dot_exe("G");
     B.vaulthunter_dot_exe("G");
     std::cout << std::endl;
